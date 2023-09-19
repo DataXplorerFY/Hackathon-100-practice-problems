@@ -99,5 +99,57 @@ console.log(result)
 // Output: [3, 4]
 
 
- 
+ // 11. Merge two sorted arrays into one sorted array.
+// - Input: [1, 3, 5], [2, 4, 6]
+// - Output: [1, 2, 3, 4, 5, 6]
 
+function merge(arr1:number[],arr2:number[]){
+
+    let arr3:number[]= arr1.concat(arr2);
+    arr3.sort()
+    console.log(arr3);
+
+}
+
+merge([1, 3, 5],[2, 4, 6]);
+
+// 12. Find the difference between two arrays.
+// - Input: [1, 2, 3, 4], [2, 3]
+// - Output: [1, 4]
+
+
+function diff(arr:number[],arr1:number[]){
+    
+    
+    let result:number[]= arr.filter(values => !arr1.includes(values))
+    
+    console.log(result);
+    
+    
+}
+
+diff([1, 2, 3, 4], [2, 3])
+
+
+
+// 13. Count the occurrences of a specific element in an array.
+// - Input: [1, 2, 2, 3, 2, 4, 5], 2
+// - Output: 3
+
+function countOccurrences(arr: number[], target: number): number {
+    let count = 0;
+
+    for (const element of arr) {
+        if (element === target) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
+const inputArray: number[] = [1, 2, 2, 3, 2, 4, 5];
+const targetElement: number = 2;
+const result1: number = countOccurrences(inputArray, targetElement);
+console.log(result1); 
