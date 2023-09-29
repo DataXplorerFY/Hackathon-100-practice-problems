@@ -92,3 +92,50 @@ function diff(arr, arr1) {
     console.log(result);
 }
 diff([1, 2, 3, 4], [2, 3]);
+// 13. Count the occurrences of a specific element in an array.
+// - Input: [1, 2, 2, 3, 2, 4, 5], 2
+// - Output: 3
+function countOccurrences(arr, target) {
+    let count = 0;
+    for (const element of arr) {
+        if (element === target) {
+            count++;
+        }
+    }
+    return count;
+}
+const inputArray = [1, 2, 2, 3, 2, 4, 5];
+const targetElement = 2;
+const result1 = countOccurrences(inputArray, targetElement);
+console.log(result1);
+// 14. Find the second smallest number in an array.
+// - Input: [5, 2, 8, 1, 7]
+// - Output: 2
+function findSecondSmallestNumber(arr) {
+    if (arr.length < 2) {
+        return undefined;
+    }
+    let smallest = Infinity;
+    let secondSmallest = Infinity;
+    for (const num of arr) {
+        if (num < smallest) {
+            secondSmallest = smallest;
+            smallest = num;
+        }
+        else if (num < secondSmallest && num !== smallest) {
+            secondSmallest = num;
+        }
+    }
+    if (secondSmallest === Infinity) {
+        return undefined;
+    }
+    return secondSmallest;
+}
+const inputArray1 = [5, 2, 8, 1, 7];
+const secondSmallest = findSecondSmallestNumber(inputArray1);
+if (secondSmallest !== undefined) {
+    console.log("Second smallest number:", secondSmallest);
+}
+else {
+    console.log("There is no second smallest number in the array.");
+}
