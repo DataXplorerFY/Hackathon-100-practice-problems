@@ -195,4 +195,5 @@ if (secondSmallest !== undefined) {
     console.log("Second smallest number:", secondSmallest);
 } else {
     console.log("There is no second smallest number in the array.");
+    console.log("There is no second smallest number in the array.");
 }
