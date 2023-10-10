@@ -197,3 +197,40 @@ if (secondSmallest !== undefined) {
     console.log("There is no second smallest number in the array.");
     console.log("There is no second smallest number in the array.");
 }
+
+
+// 15. Find the longest consecutive sequence of numbers in an array.
+// - Input: [100, 4, 200, 1, 3, 2]
+// - Output: [1, 2, 3, 4]
+
+function longestConsecutiveSequence(nums: number[]): number[] {
+    if (nums.length === 0) {
+        return [];
+    }
+
+    nums.sort((a, b) => a - b); 
+    let longestSequence: number[] = [nums[0]]; 
+    let currentSequence: number[] = [nums[0]]; 
+
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] === nums[i - 1] + 1) {
+            currentSequence.push(nums[i]); 
+        } else if (nums[i] !== nums[i - 1]) {
+            if (currentSequence.length > longestSequence.length) {
+                longestSequence = [...currentSequence]; 
+            }
+            currentSequence = [nums[i]]; 
+        }
+    }
+
+    if (currentSequence.length > longestSequence.length) {
+        longestSequence = [...currentSequence]; 
+    }
+
+    return longestSequence;
+}
+
+
+const inputArray11: number[] = [100, 4, 200, 1, 3, 2];
+const result11: number[] = longestConsecutiveSequence(inputArray);
+console.log(result); 
