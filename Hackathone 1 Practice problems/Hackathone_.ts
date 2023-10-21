@@ -234,3 +234,41 @@ function longestConsecutiveSequence(nums: number[]): number[] {
 const inputArray11: number[] = [100, 4, 200, 1, 3, 2];
 const result11: number[] = longestConsecutiveSequence(inputArray);
 console.log(result); 
+
+
+
+// 16. Implement a stack using an array with push and pop methods
+
+
+class Stack<T> {
+  private items: T[] = [];
+
+  push(item: T): void {
+    this.items.push(item);
+  }
+
+  pop(): T | undefined {
+    if (!this.isEmpty()) {
+      return this.items.pop();
+    }
+  }
+
+  isEmpty(): boolean {
+    return this.items.length === 0;
+  }
+
+  size(): number {
+    return this.items.length;
+  }
+}
+
+// Example usage:
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+console.log(stack.pop()); // Output: 3
+console.log(stack.pop()); // Output: 2
+console.log(stack.pop()); // Output: 1
