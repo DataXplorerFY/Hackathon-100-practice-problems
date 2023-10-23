@@ -321,3 +321,28 @@ class Queue<T> {
   console.log(myQueue.peek());     
   console.log(myQueue.size());   
   
+
+  // 18. Flatten a nested array.
+// - Input: [1, [2], [3, [4]]]
+// - Output: [1, 2, 3, 4]
+
+
+
+function flattenArray(inputArray: any[]): any[] {
+    const result: any[] = [];
+  
+    for (const item of inputArray) {
+      if (Array.isArray(item)) {
+        result.push(...flattenArray(item));
+      } else {
+        result.push(item);
+      }
+    }
+  
+    return result;
+  }
+  
+  const nestedArray = [1, [2], [3, [4]]];
+  const flattenedArray = flattenArray(nestedArray);
+  console.log(flattenedArray);
+  
