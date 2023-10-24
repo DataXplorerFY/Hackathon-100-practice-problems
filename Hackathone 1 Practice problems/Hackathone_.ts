@@ -345,4 +345,26 @@ function flattenArray(inputArray: any[]): any[] {
   const nestedArray = [1, [2], [3, [4]]];
   const flattenedArray = flattenArray(nestedArray);
   console.log(flattenedArray);
-  
+
+  // 19. Calculate the product of all numbers in an array.
+// - Input: [2, 3, 4]
+// - Output: 24
+
+
+
+function calculateProduct(numbers: number[]): number {
+  if (numbers.length === 0) {
+    return 1; 
+  }
+
+  let product = 1;
+
+  for (const number of numbers) {
+    product *= number;
+  }
+
+  return product;
+}
+
+
+
