@@ -366,5 +366,35 @@ function calculateProduct(numbers: number[]): number {
   return product;
 }
 
+// 20. Find the first non-repeating element in an array.
+// - Input: [1, 2, 3, 2, 1, 4]
+// - Output: 3
+function findFirstNonRepeatingElement(arr: number[]): number | undefined {
+  const countMap: Map<number, number> = new Map();
 
+  for (const num of arr) {
+    if (countMap.has(num)) {
+      countMap.set(num, countMap.get(num)! + 1);
+    } else {
+      countMap.set(num, 1);
+    }
+  }
+
+  for (const num of arr) {
+    if (countMap.get(num) === 1) {
+      return num;
+    }
+  }
+
+  return undefined; // Return undefined if no non-repeating element is found
+}
+
+const input: number[] = [1, 2, 3, 2, 1, 4];
+const final: number | undefined = findFirstNonRepeatingElement(input);
+
+if (final !== undefined) {
+  console.log(`The first non-repeating element is: ${final}`);
+} else {
+  console.log("No non-repeating element found in the array.");
+}
 
