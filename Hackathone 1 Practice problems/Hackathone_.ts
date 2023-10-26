@@ -398,3 +398,19 @@ if (final !== undefined) {
   console.log("No non-repeating element found in the array.");
 }
 
+// 21. Remove the specified element from an array in-place.
+// - Input: [1, 2, 3, 4, 5], 3
+// - Output: [1, 2, 4, 5]
+
+function removeElementFromArray(arr: number[], elementToRemove: number): void {
+  const index = arr.indexOf(elementToRemove);
+  if (index !== -1) {
+      arr.splice(index, 1);
+  }
+}
+
+const iinputArray: number[] = [1, 2, 3, 4, 5];
+const elementToRemove: number = 3;
+
+removeElementFromArray(iinputArray, elementToRemove);
+console.log(iinputArray); 
