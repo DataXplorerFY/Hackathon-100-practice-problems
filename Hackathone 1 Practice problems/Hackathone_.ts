@@ -431,3 +431,25 @@ function areArraysEqual(array1: any[], array2: any[]): boolean {
 
   return true;
 }
+
+
+
+
+
+
+// 23. Find the kth smallest element in an unsorted array.
+// - Input: [5, 3, 1, 2, 4], k=3
+// - Output: 3
+function findKthSmallest(arr: number[], k: number): number {
+  if (k < 1 || k > arr.length) {
+    throw new Error('Invalid value of k');
+  }
+
+  const sortedArr = arr.slice().sort((a, b) => a - b);
+  return sortedArr[k - 1];
+}
+
+const input_Array = [5, 3, 1, 2, 4];
+const k = 3;
+const kthSmallest = findKthSmallest(input_Array, k);
+console.log(`The ${k}th smallest element is: ${kthSmallest}`);
