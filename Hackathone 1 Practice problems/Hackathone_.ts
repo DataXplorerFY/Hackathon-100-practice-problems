@@ -453,3 +453,16 @@ const input_Array = [5, 3, 1, 2, 4];
 const k = 3;
 const kthSmallest = findKthSmallest(input_Array, k);
 console.log(`The ${k}th smallest element is: ${kthSmallest}`);
+
+// 24. Remove all falsy values (false, null, 0, "", undefined, and NaN) from an array.
+// - Input: [0, 1, false, true, null, undefined, NaN, "hello"]
+// - Output: [1, true, "hello"]
+
+function removeFalsyValues(arr: any[]): any[] {
+  return arr.filter((item) => !!item);
+}
+
+const input__Array: any[] = [0, 1, false, true, null, undefined, NaN, "hello"];
+const outputArray: any[] = removeFalsyValues(input__Array);
+
+console.log(outputArray);
