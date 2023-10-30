@@ -466,3 +466,19 @@ const input__Array: any[] = [0, 1, false, true, null, undefined, NaN, "hello"];
 const outputArray: any[] = removeFalsyValues(input__Array);
 
 console.log(outputArray);
+
+// 25. Reverse an array in-place.
+// - Input: [1, 2, 3, 4, 5]
+// - Output: [5, 4, 3, 2, 1]
+
+function reverseArrayInPlace(arr: number[]): void {
+  for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+      const temp = arr[i];
+      arr[i] = arr[arr.length - 1 - i];
+      arr[arr.length - 1 - i] = temp;
+  }
+}
+
+const InputArray: number[] = [1, 2, 3, 4, 5];
+reverseArrayInPlace(InputArray);
+console.log(InputArray); 
