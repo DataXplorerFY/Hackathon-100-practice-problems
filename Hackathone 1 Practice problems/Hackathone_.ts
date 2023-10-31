@@ -482,3 +482,27 @@ function reverseArrayInPlace(arr: number[]): void {
 const InputArray: number[] = [1, 2, 3, 4, 5];
 reverseArrayInPlace(InputArray);
 console.log(InputArray); 
+
+// 26. Calculate the median of an array of numbers.
+// - Input: [4, 2, 7, 1, 5]
+// - Output: 4
+function calculateMedian(numbers: number[]): number {
+  
+  numbers.sort((a, b) => a - b);
+
+  const length = numbers.length;
+  
+  if (length % 2 === 0) {
+    
+    const middle1 = numbers[length / 2 - 1];
+    const middle2 = numbers[length / 2];
+    return (middle1 + middle2) / 2;
+  } else {
+    
+    return numbers[Math.floor(length / 2)];
+  }
+}
+
+const Input = [4, 2, 7, 1, 5];
+const median = calculateMedian(Input);
+console.log("Median:", median); 
