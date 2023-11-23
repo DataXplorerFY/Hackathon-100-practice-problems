@@ -138,4 +138,254 @@ if (secondSmallest !== undefined) {
 }
 else {
     console.log("There is no second smallest number in the array.");
+    console.log("There is no second smallest number in the array.");
 }
+// 15. Find the longest consecutive sequence of numbers in an array.
+// - Input: [100, 4, 200, 1, 3, 2]
+// - Output: [1, 2, 3, 4]
+function longestConsecutiveSequence(nums) {
+    if (nums.length === 0) {
+        return [];
+    }
+    nums.sort((a, b) => a - b);
+    let longestSequence = [nums[0]];
+    let currentSequence = [nums[0]];
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] === nums[i - 1] + 1) {
+            currentSequence.push(nums[i]);
+        }
+        else if (nums[i] !== nums[i - 1]) {
+            if (currentSequence.length > longestSequence.length) {
+                longestSequence = [...currentSequence];
+            }
+            currentSequence = [nums[i]];
+        }
+    }
+    if (currentSequence.length > longestSequence.length) {
+        longestSequence = [...currentSequence];
+    }
+    return longestSequence;
+}
+const inputArray11 = [100, 4, 200, 1, 3, 2];
+const result11 = longestConsecutiveSequence(inputArray);
+console.log(result);
+// 16. Implement a stack using an array with push and pop methods
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+    push(item) {
+        this.items.push(item);
+    }
+    pop() {
+        if (!this.isEmpty()) {
+            return this.items.pop();
+        }
+    }
+    isEmpty() {
+        return this.items.length === 0;
+    }
+    size() {
+        return this.items.length;
+    }
+}
+// Example usage:
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.pop()); // Output: 3
+console.log(stack.pop()); // Output: 2
+console.log(stack.pop()); // Output: 1
+// 17. Implement a queue using an array with enqueue and dequeue methods.
+class Queue {
+    constructor() {
+        this.items = [];
+    }
+    enqueue(item) {
+        this.items.push(item);
+    }
+    dequeue() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        return this.items.shift();
+    }
+    peek() {
+        if (this.isEmpty()) {
+            return undefined;
+        }
+        return this.items[0];
+    }
+    isEmpty() {
+        return this.items.length === 0;
+    }
+    size() {
+        return this.items.length;
+    }
+}
+const myQueue = new Queue();
+myQueue.enqueue(1);
+myQueue.enqueue(2);
+myQueue.enqueue(3);
+console.log(myQueue.dequeue());
+console.log(myQueue.peek());
+console.log(myQueue.size());
+// 18. Flatten a nested array.
+// - Input: [1, [2], [3, [4]]]
+// - Output: [1, 2, 3, 4]
+function flattenArray(inputArray) {
+    const result = [];
+    for (const item of inputArray) {
+        if (Array.isArray(item)) {
+            result.push(...flattenArray(item));
+        }
+        else {
+            result.push(item);
+        }
+    }
+    return result;
+}
+const nestedArray = [1, [2], [3, [4]]];
+const flattenedArray = flattenArray(nestedArray);
+console.log(flattenedArray);
+// 19. Calculate the product of all numbers in an array.
+// - Input: [2, 3, 4]
+// - Output: 24
+function calculateProduct(numbers) {
+    if (numbers.length === 0) {
+        return 1;
+    }
+    let product = 1;
+    for (const number of numbers) {
+        product *= number;
+    }
+    return product;
+}
+// 20. Find the first non-repeating element in an array.
+// - Input: [1, 2, 3, 2, 1, 4]
+// - Output: 3
+function findFirstNonRepeatingElement(arr) {
+    const countMap = new Map();
+    for (const num of arr) {
+        if (countMap.has(num)) {
+            countMap.set(num, countMap.get(num) + 1);
+        }
+        else {
+            countMap.set(num, 1);
+        }
+    }
+    for (const num of arr) {
+        if (countMap.get(num) === 1) {
+            return num;
+        }
+    }
+    return undefined; // Return undefined if no non-repeating element is found
+}
+const input = [1, 2, 3, 2, 1, 4];
+const final = findFirstNonRepeatingElement(input);
+if (final !== undefined) {
+    console.log(`The first non-repeating element is: ${final}`);
+}
+else {
+    console.log("No non-repeating element found in the array.");
+}
+// 21. Remove the specified element from an array in-place.
+// - Input: [1, 2, 3, 4, 5], 3
+// - Output: [1, 2, 4, 5]
+function removeElementFromArray(arr, elementToRemove) {
+    const index = arr.indexOf(elementToRemove);
+    if (index !== -1) {
+        arr.splice(index, 1);
+    }
+}
+const iinputArray = [1, 2, 3, 4, 5];
+const elementToRemove = 3;
+removeElementFromArray(iinputArray, elementToRemove);
+console.log(iinputArray);
+//22. Check if two arrays are equal (have the same elements in the same order).
+// - Input: [1, 2, 3], [1, 2, 3]
+// - Output: true
+function areArraysEqual(array1, array2) {
+    if (array1.length !== array2.length) {
+        return false;
+    }
+    for (let i = 0; i < array1.length; i++) {
+        if (array1[i] !== array2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+// 23. Find the kth smallest element in an unsorted array.
+// - Input: [5, 3, 1, 2, 4], k=3
+// - Output: 3
+function findKthSmallest(arr, k) {
+    if (k < 1 || k > arr.length) {
+        throw new Error('Invalid value of k');
+    }
+    const sortedArr = arr.slice().sort((a, b) => a - b);
+    return sortedArr[k - 1];
+}
+const input_Array = [5, 3, 1, 2, 4];
+const k = 3;
+const kthSmallest = findKthSmallest(input_Array, k);
+console.log(`The ${k}th smallest element is: ${kthSmallest}`);
+// 24. Remove all falsy values (false, null, 0, "", undefined, and NaN) from an array.
+// - Input: [0, 1, false, true, null, undefined, NaN, "hello"]
+// - Output: [1, true, "hello"]
+function removeFalsyValues(arr) {
+    return arr.filter((item) => !!item);
+}
+const input__Array = [0, 1, false, true, null, undefined, NaN, "hello"];
+const outputArray = removeFalsyValues(input__Array);
+console.log(outputArray);
+// 25. Reverse an array in-place.
+// - Input: [1, 2, 3, 4, 5]
+// - Output: [5, 4, 3, 2, 1]
+function reverseArrayInPlace(arr) {
+    for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+        const temp = arr[i];
+        arr[i] = arr[arr.length - 1 - i];
+        arr[arr.length - 1 - i] = temp;
+    }
+}
+const InputArray = [1, 2, 3, 4, 5];
+reverseArrayInPlace(InputArray);
+console.log(InputArray);
+// 26. Calculate the median of an array of numbers.
+// - Input: [4, 2, 7, 1, 5]
+// - Output: 4
+function calculateMedian(numbers) {
+    numbers.sort((a, b) => a - b);
+    const length = numbers.length;
+    if (length % 2 === 0) {
+        const middle1 = numbers[length / 2 - 1];
+        const middle2 = numbers[length / 2];
+        return (middle1 + middle2) / 2;
+    }
+    else {
+        return numbers[Math.floor(length / 2)];
+    }
+}
+const Input = [4, 2, 7, 1, 5];
+const median = calculateMedian(Input);
+console.log("Median:", median);
+// 27. Find the missing number in an array of consecutive numbers.
+// - Input: [1, 2, 4, 5, 6]
+// - Output: 3
+function missingNumber(arr1) {
+    // Sort the array in ascending order
+    arr1.sort((a, b) => a - b);
+    // Iterate through the array to find the gap
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== i + 1) {
+            // Return the missing number
+            return i + 1;
+        }
+    }
+    return null;
+}
+const inputArray22 = [1, 2, 4, 5, 6];
+const result22 = missingNumber(inputArray22);
+console.log("Missing number:", result22);
