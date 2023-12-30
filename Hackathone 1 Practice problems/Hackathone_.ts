@@ -535,3 +535,42 @@ const result22: number | null = missingNumber(inputArray22);
 console.log("Missing number:", result22);
 
 
+// 28  Implement a binary search algorithm on a sorted array.
+
+function binarySearch(arr: number[], target: number): number {
+  let left: number = 0;
+  let right: number = arr.length - 1;
+
+  while (left <= right) {
+      const mid: number = Math.floor((left + right) / 2);
+
+      // Checking if target is present at the middle
+      if (arr[mid] === target) {
+          return mid;
+      }
+
+      // If target is greater, ignore the left half
+      else if (arr[mid] < target) {
+          left = mid + 1;
+      }
+
+      // If target is smaller, ignore the right half
+      else {
+          right = mid - 1;
+      }
+  }
+
+  // If we reach here, then the element was not present
+  return -1;
+}
+
+// Example usage
+const sortedArray: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const targetValue: number = 7;
+const Result: number = binarySearch(sortedArray, targetValue);
+
+if (Result !== -1) {
+  console.log(`Element ${targetValue} is present at index ${result}`);
+} else {
+  console.log(`Element ${targetValue} is not present in the array`);
+}
