@@ -574,3 +574,16 @@ if (Result !== -1) {
 } else {
   console.log(`Element ${targetValue} is not present in the array`);
 }
+//29  Remove elements from an array that satisfy a given condition.
+// - Input: [1, 2, 3, 4, 5], element => element % 2 === 0
+// - Output: [1, 3, 5]
+function removeElementsByCondition(arr: number[], condition: (element: number) => boolean): number[] {
+  return arr.filter(element => !condition(element));
+}
+
+const Input_Array: number[] = [1, 2, 3, 4, 5];
+const conditionFunction = (element: number) => element % 2 === 0;
+
+const output_Array: number[] = removeElementsByCondition(Input_Array, conditionFunction);
+
+console.log(output_Array); 
