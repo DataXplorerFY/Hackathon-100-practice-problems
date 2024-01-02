@@ -587,3 +587,22 @@ const conditionFunction = (element: number) => element % 2 === 0;
 const output_Array: number[] = removeElementsByCondition(Input_Array, conditionFunction);
 
 console.log(output_Array); 
+
+// 30. Implement a function to shuffle the elements of an array randomly
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffledArray = [...array];
+
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+
+  return shuffledArray;
+}
+
+// Example usage:
+const originalArray = [1, 2, 3, 4, 5];
+const shuffledArray = shuffleArray(originalArray);
+
+console.log("Original Array:", originalArray);
+console.log("Shuffled Array:", shuffledArray);
