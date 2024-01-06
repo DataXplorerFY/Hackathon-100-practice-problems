@@ -613,3 +613,23 @@ console.log("Shuffled Array:", shuffledArray);
 for (let i = 1; i <= 10; i++) {
   console.log(i);
 }
+// question 32  swap two numbers
+function swapNumbers(a: number, b: number): [number, number] {
+  let temp: number;
+
+  temp = a;
+  a = b;
+  b = temp;
+
+  return [a, b];
+}
+
+// Example usage:
+let num1: number = 5;
+let num2: number = 10;
+
+console.log(`Before swapping: num1 = ${num1}, num2 = ${num2}`);
+
+[num1, num2] = swapNumbers(num1, num2);
+
+console.log(`After swapping: num1 = ${num1}, num2 = ${num2}`);
