@@ -633,3 +633,18 @@ console.log(`Before swapping: num1 = ${num1}, num2 = ${num2}`);
 [num1, num2] = swapNumbers(num1, num2);
 
 console.log(`After swapping: num1 = ${num1}, num2 = ${num2}`);
+
+//Q32: write a program to print the pattern of stars
+function printStarPattern(rows: number): void {
+  for (let i = 1; i <= rows; i++) {
+      let row = '';
+      for (let j = 1; j <= i; j++) {
+          row += '* ';
+      }
+      console.log(row);
+  }
+}
+
+// Change the argument to the number of rows you want in the pattern
+const numberOfRows = 5;
+printStarPattern(numberOfRows);
