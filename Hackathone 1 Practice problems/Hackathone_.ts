@@ -648,3 +648,18 @@ function printStarPattern(rows: number): void {
 // Change the argument to the number of rows you want in the pattern
 const numberOfRows = 5;
 printStarPattern(numberOfRows);
+
+// Q33 Write a program to print the star pattern
+
+function generateSquarePattern(size: number): void {
+  for (let i = 0; i < size; i++) {
+    let row = '';
+    for (let j = 0; j < size; j++) {
+      row += '* ';
+    }
+    console.log(row);
+  }
+}
+
+// Example: Generate a square pattern of size 5
+generateSquarePattern(5);
