@@ -663,3 +663,27 @@ function generateSquarePattern(size: number): void {
 
 // Example: Generate a square pattern of size 5
 generateSquarePattern(5);
+
+// 33. Calculate the factorial of a number using a for loop.
+// - Input: 5
+// - Output: 120
+
+function calculateFactorial(number: number): number {
+  if (number < 0) {
+      throw new Error("Factorial is not defined for negative numbers");
+  }
+
+  let factorialResult: number = 1;
+
+  for (let i = 1; i <= number; i++) {
+      factorialResult *= i;
+  }
+
+  return factorialResult;
+}
+
+// Example usage
+const inputNumber: number = 5;
+const result111: number = calculateFactorial(inputNumber);
+
+console.log(`Factorial of ${inputNumber} is: ${result111}`);
