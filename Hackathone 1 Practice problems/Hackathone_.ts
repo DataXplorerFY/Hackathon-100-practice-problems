@@ -664,7 +664,7 @@ function generateSquarePattern(size: number): void {
 // Example: Generate a square pattern of size 5
 generateSquarePattern(5);
 
-// 33. Calculate the factorial of a number using a for loop.
+// 34. Calculate the factorial of a number using a for loop.
 // - Input: 5
 // - Output: 120
 
@@ -687,3 +687,30 @@ const inputNumber: number = 5;
 const result111: number = calculateFactorial(inputNumber);
 
 console.log(`Factorial of ${inputNumber} is: ${result111}`);
+
+// 35 Generate a Fibonacci sequence of n terms using a while loop.
+// - Input: 6
+// - Output: [0, 1, 1, 2, 3, 5]
+
+function generateFibonacci(n: number): number[] {
+  const fibonacciSequence: number[] = [];
+
+  let firstTerm = 0;
+  let secondTerm = 1;
+
+  while (n > 0) {
+      fibonacciSequence.push(firstTerm);
+
+      const nextTerm = firstTerm + secondTerm;
+      firstTerm = secondTerm;
+      secondTerm = nextTerm;
+
+      n--;
+  }
+
+  return fibonacciSequence;
+}
+
+const n = 6;
+const fibonacciResult = generateFibonacci(n);
+console.log(fibonacciResult);
