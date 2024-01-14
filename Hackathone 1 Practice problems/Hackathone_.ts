@@ -714,3 +714,16 @@ function generateFibonacci(n: number): number[] {
 const n = 6;
 const fibonacciResult = generateFibonacci(n);
 console.log(fibonacciResult);
+
+// Q36  Print the multiplication table for a given number using a for loop.
+
+function printMultiplicationTable(number: number): void {
+  console.log(`Multiplication table for ${number}:`);
+  for (let i = 1; i <= 10; i++) {
+      const result = number * i;
+      console.log(`${number} x ${i} = ${result}`);
+  }
+}
+
+// Example usage with input 3
+printMultiplicationTable(3);
