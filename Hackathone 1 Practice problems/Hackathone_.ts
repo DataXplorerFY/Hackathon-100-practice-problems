@@ -727,3 +727,17 @@ function printMultiplicationTable(number: number): void {
 
 // Example usage with input 3
 printMultiplicationTable(3);
+
+// Question 36 
+function drawStarPattern(rows: number): void {
+  for (let i = 1; i <= rows; i++) {
+      let pattern = '';
+      for (let j = 1; j <= i; j++) {
+          pattern += '* ';
+      }
+      console.log(pattern);
+  }
+}
+
+const number_Of_Rows = 5;
+drawStarPattern(numberOfRows);
