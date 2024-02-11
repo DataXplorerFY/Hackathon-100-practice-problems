@@ -741,3 +741,19 @@ function drawStarPattern(rows: number): void {
 
 const number_Of_Rows = 5;
 drawStarPattern(numberOfRows);
+
+// 37. Reverse a string using a for loop.
+// - Input: "hello"
+// - Output: "olleh"
+function reverseString(input: string): string {
+  let reversedString: string = "";
+  for (let i = input.length - 1; i >= 0; i--) {
+      reversedString += input[i];
+  }
+  return reversedString;
+}
+
+// Test the function
+const inputString: string = "hello";
+const reversedOutput: string = reverseString(inputString);
+console.log(reversedOutput); // Output: "olleh"
